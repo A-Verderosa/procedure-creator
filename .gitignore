@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Environment
+.env
+.env.local
+venv/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Sensitive credentials
+**/google_token.json
+**/*token*.json
+**/credentials*.json
+
+# Large / temporary
+__pycache__
+*.tmp
+*.log

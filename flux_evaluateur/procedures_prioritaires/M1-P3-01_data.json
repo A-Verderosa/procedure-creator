@@ -1,0 +1,101 @@
+{
+  "procedure": {
+    "titre": "Procédure de saisine d'évaluation",
+    "procedure_id": "M1-P3-01",
+    "niveau": "mythique",
+    "direction": "Évaluateur public",
+    "service": "EVALUATEUR PUBLIC",
+    "pole": "",
+    "objet": "Définir le circuit standardisé de traitement d'une demande d'évaluation (saisine) émanant de la Direction Générale ou d'une direction métier, depuis la réception jusqu'à la décision de lancement ou de refus motivé.",
+    "pilote": "Directeur de l'évaluation",
+    "acteurs": "6 acteurs : Entité évaluée · Commanditaire (DG/direction) · Évaluateur public · Parties prenantes · Contrôle qualité · Directeur de l'évaluation",
+    "champ_application": "Services concernés : Évaluateur public · Secrétariat du Comité de pilotage · Toutes directions métiers. Périmètre : ensemble du périmètre de l'Évaluateur public.",
+    "definitions": "Saisine : demande formelle d'évaluation (CEV-F01). Note d'opportunité (CEV-F02) : analyse de faisabilité. Décision motivée : acte formalisé du Directeur.",
+    "documents_reference": "Source legacy : Procédure de saisine d'évaluation. Textes : CGCT Livre Ier, Décret relatif à l'évaluation. Internes : Charte CEV-001, DOX v6.0.",
+    "documents_supports": "CEV-F01 Formulaire de saisine ; CEV-F02 Note d'opportunité ; Registre des saisines ; Modèle de notification.",
+    "regles": "G1 Délai de réponse : 15 jours ouvrés maximum ; G2 Traçabilité obligatoire ; G3 Motivation systématique des décisions ; G4 Confidentialité des saisines ; G5 Indépendance de l'instruction",
+    "consignes": "C1 Accusé de réception sous 48h ; C2 Instruction en 10 jours ouvrés max ; C3 Avis Comité de pilotage sous 5 jours ; C4 Décision motivée formalisée ; C5 Notification signée dans les 2 jours",
+    "risques": "4 risques (R1-R4) cotés P×I. R1 : Saisine non traitée délai ; R2 : Décision insuffisamment motivée ; R3 : Saisine incomplète ; R4 : Conflit d'intérêt.",
+    "sections_or": [
+      "§0 Localisation CRAIE",
+      "§1 Objet",
+      "§2 Champ d'application",
+      "§3 Définitions & glossaire",
+      "§4 Documents de référence",
+      "§5 Acteurs responsables",
+      "§6.3 Détail des étapes",
+      "§6.4 Logigramme",
+      "§7 Règles de gestion",
+      "§8 Consignes opérationnelles",
+      "§9 Risques",
+      "§10 Documents support",
+      "§11 Tableau des risques",
+      "§12 Matrice des risques",
+      "§17 Rapport groupe de lecture"
+    ],
+    "statut": "À faire",
+    "validation": "",
+    "version": "1.0",
+    "date_actualisation": "2026-08-03",
+    "periode_revue": "Annuelle",
+    "redacteur": ["12f1d81e-4c39-81af-b875-e5c5364a397c"],
+    "validateur": ["12f1d81e-4c39-81af-b875-e5c5364a397c"],
+    "ultra": false,
+    "phases": [
+      {
+        "nom": "Réception et enregistrement de la saisine",
+        "titre": "Réception et enregistrement de la saisine",
+        "acteur": "Évaluateur public",
+        "delai": "2 jours ouvrés",
+        "action": "Réceptionner la demande d'évaluation, vérifier la complétude du dossier (objet, périmètre, contexte, enjeux, contact référent), enregistrer dans le registre des saisines avec un numéro unique (SAI-AAAAMM-NNN). Si incomplet, demander complément à la direction demandeuse (délai suspendu).",
+        "documents": "Registre des saisines (BDD 1 Procédures / table Saisines) · Formulaire de saisine type CEV-F01 · Accusé de réception",
+        "vigilance": "**Règles appliquées** : G2 (suspension délai), G5 (délai 15 jours), G1 (enregistrement 2 jours)"
+      },
+      {
+        "nom": "Instruction préalable et analyse de faisabilité",
+        "titre": "Instruction préalable et analyse de faisabilité",
+        "acteur": "Évaluateur public (sous supervision du Directeur de l'évaluation)",
+        "delai": "8 jours ouvrés",
+        "action": "Analyser la demande : clarification de l'objet, identification des parties prenantes, évaluation des ressources nécessaires (volume, compétences, budget), risques prévisibles, conflits d'intérêt potentiels. Rédiger une note d'opportunité synthétique (CEV-F02).",
+        "documents": "Template Note d'opportunité CEV-F02 · Grille d'analyse de faisabilité · Référentiel des charges évaluatives",
+        "vigilance": "**Règles appliquées** : G2 (suspension délai), G5 (délai 15 jours), G1 (enregistrement 2 jours)"
+      },
+      {
+        "nom": "Décision et motivation",
+        "titre": "Décision et motivation",
+        "acteur": "Directeur de l'évaluation (décision) · Comité de pilotage (validation)",
+        "delai": "5 jours ouvrés (incluant la tenue du Comité)",
+        "action": "Soumettre la note d'opportunité au Comité de pilotage. Le Comité statue : acceptation (avec ou sans réserves), demande de reformulation, ou refus motivé. La décision est formalisée par le Directeur de l'évaluation dans le template CEV-F03.",
+        "documents": "Template Décision de saisine CEV-F03 · Note d'opportunité CEV-F02 · Registre des décisions du Comité de pilotage",
+        "vigilance": "**Règles appliquées** : G2 (suspension délai), G5 (délai 15 jours), G1 (enregistrement 2 jours)"
+      },
+      {
+        "nom": "Notification et programmation",
+        "titre": "Notification et programmation",
+        "acteur": "Directeur de l'évaluation",
+        "delai": "2 jours ouvrés",
+        "action": "Notifier la décision à la direction demandeuse (acceptation ou refus motivé). En cas d'acceptation, inscrire l'évaluation dans le programme en cours et transmettre le dossier à l'étape P3. En cas de refus, archiver la décision motivée dans la GED.",
+        "documents": "Registre des saisines (mise à jour statut) · Programme annuel d'évaluation (BDD) · Messagerie institutionnelle · GED Évaluateur",
+        "vigilance": "**Règles appliquées** : G2 (suspension délai), G5 (délai 15 jours), G1 (enregistrement 2 jours)"
+      },
+      {
+        "nom": "Phase 5",
+        "titre": "Non applicable",
+        "acteur": "—",
+        "delai": "—",
+        "action": "—",
+        "documents": "—",
+        "vigilance": ""
+      },
+      {
+        "nom": "Phase 6",
+        "titre": "Non applicable",
+        "acteur": "—",
+        "delai": "—",
+        "action": "—",
+        "documents": "—",
+        "vigilance": ""
+      }
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "procedure": {
+    "titre": "Procédure de saisine d'évaluation",
+    "procedure_id": "CEV-P02",
+    "niveau": "mythique",
+    "sections_or": ["§0 Localisation CRAIE", "§1 Objet", "§2 Champ d'application", "§3 Définitions & glossaire", "§4 Documents de référence", "§5 Acteurs responsables", "§6.3 Détail des étapes", "§6.4 Logigramme", "§7 Règles de gestion", "§8 Consignes opérationnelles", "§9 Risques", "§10 Documents support", "§11 Tableau des risques", "§12 Matrice des risques", "§17 Rapport groupe de lecture"],
+    "statut": "À faire",
+    "validation": "",
+    "version": "1.0",
+    "direction": "Évaluateur public",
+    "service": "EVALUATEUR PUBLIC",
+    "pole": "",
+    "objet": "Définir le circuit standardisé de traitement d'une demande d'évaluation (saisine) émanant de la Direction Générale ou d'une direction métier, depuis la réception jusqu'à la décision de lancement ou de refus motivé.",
+    "pilote": "Directeur de l'évaluation",
+    "regles": "G1 Délai de réponse : 15 jours ouvrés maximum ; G2 Traçabilité obligatoire ; G3 Motivation systématique des décisions ; G4 Confidentialité des saisines ; G5 Indépendance de l'instruction",
+    "consignes": "C1 Accusé de réception sous 48h ; C2 Instruction en 10 jours ouvrés max ; C3 Avis Comité de pilotage sous 5 jours ; C4 Décision motivée formalisée ; C5 Notification signée dans les 2 jours",
+    "acteurs": "6 acteurs : Entité évaluée · Commanditaire (DG/direction) · Évaluateur public · Parties prenantes · Contrôle qualité · Directeur de l'évaluation",
+    "champ_application": "Services concernés : Évaluateur public · Secrétariat du Comité de pilotage · Toutes directions métiers. Périmètre : ensemble du périmètre de l'Évaluateur public.",
+    "definitions": "Saisine : demande formelle d'évaluation (CEV-F01). Note d'opportunité (CEV-F02) : analyse de faisabilité. Décision motivée : acte formalisé du Directeur.",
+    "documents_reference": "Source legacy : Procédure de saisine d'évaluation. Textes : CGCT Livre Ier, Décret relatif à l'évaluation. Internes : Charte CEV-001, DOX v6.0.",
+    "documents_supports": "CEV-F01 Formulaire de saisine ; CEV-F02 Note d'opportunité ; Registre des saisines ; Modèle de notification.",
+    "risques": "4 risques (R1-R4) cotés P×I. R1 : Saisine non traitée délai ; R2 : Décision insuffisamment motivée ; R3 : Saisine incomplète ; R4 : Conflit d'intérêt.",
+    "date_actualisation": "2026-08-01",
+    "periode_revue": "Annuelle",
+    "redacteur": ["12f1d81e-4c39-81af-b875-e5c5364a397c"],
+    "validateur": ["12f1d81e-4c39-81af-b875-e5c5364a397c"],
+    "ultra": false
+  }
+}

@@ -1,0 +1,396 @@
+# Matrice de couverture par niveau de production
+# Chaque niveau définit les sections obligatoires et le nombre de critères QG
+#
+# Section §9 — RISQUES & CONTRÔLES (unifiée)
+#   Structure interne :
+#     9.1  Cartographie P×I (8 risques : code, nom, desc, cause, impact, proba, criticité)
+#     9.2  Scoring RB → RN → RC (Risque Brut → Net → Cible)
+#     9.3  Score PMRI crédité (vue liée Mesures PMRI)
+#     9.4  Matrice P×I (QuadrantChart Mermaid)
+#     9.5  Contrôle ↔ Risque ↔ Règle (matrice de couverture)
+#     9.6  Mapping CRAIE
+#     9.7  Visualisation avancée (Bow-tie M1 + Radar M3)
+#
+# Linked views (vues liées) :
+#   Relations Notion affichées dans la page et gérées par SYNC_NOTION :
+#     - risques_relations  → SBRX (8 items)
+#     - mesures_pmri       → PMRI (24 items)
+#     - document_ged       → GED (6 items)
+#     - faq_relations      → FAQ (5 items)
+#     - snapshots          → Snapshots procédures (1 item)
+
+niveaux:
+  bronze:
+    code: BZ
+    emoji: "🥉"
+    command: "/proc bronze"
+    finalite: "Cadrage minimal et procédure de base"
+    couverture: 11
+    sections:
+      required:
+        - flash_card
+        - craie_localisation
+        - acteurs_cles
+        - etapes_simplifiees
+      optional:
+        - mermaid_logigramme
+
+  argent:
+    code: AR
+    emoji: "🥈"
+    command: "/proc argent"
+    finalite: "Procédure interne complète et exploitable"
+    couverture: 14
+    sections:
+      required:
+        - flash_card
+        - craie_localisation
+        - mermaid_logigramme
+        - raci
+        - etapes_detaillees
+        - risques_analyse
+      optional:
+        - documents_support
+
+  or:
+    code: OR
+    emoji: "🥇"
+    command: "/proc or"
+    finalite: "Procédure professionnelle stabilisée"
+    couverture: 17
+    sections:
+      required:
+        - flash_card
+        - craie_localisation
+        - mermaid_logigramme
+        - raci_complet
+        - etapes_detaillees
+        - risques_analyse
+        - documents_support
+        - documents_enregistrement
+      optional:
+        - tableau_bord
+
+  platine:
+    code: PT
+    emoji: "💎"
+    command: "/proc platine"
+    finalite: "Procédure audit-ready avec gouvernance et déploiement"
+    couverture: 23
+    sections:
+      required:
+        - flash_card
+        - craie_localisation
+        - mermaid_logigramme
+        - raci_complet
+        - etapes_detaillees
+        - risques_analyse
+        - documents_support
+        - documents_enregistrement
+        - quality_gate_checklist
+        - cycle_vie
+        - scorecard
+      optional:
+        - kpi_cockpit
+
+  ultra:
+    code: UL
+    emoji: "💎"
+    command: "/proc ultra"
+    finalite: "Procédure critique de production, contrôlée et testée"
+    couverture: 31
+    sections:
+      required:
+        - flash_card
+        - craie_localisation
+        - mermaid_logigramme
+        - raci_complet_6plus
+        - etapes_detaillees
+        - risques_analyse
+        - documents_support
+        - documents_enregistrement
+        - quality_gate_checklist
+        - cycle_vie_verrouille
+        - scorecard_complet
+        - modularite_tableau
+        - points_vigilance
+        - indicateurs_performance
+        - visualisation_risques
+      optional:
+        - kpi_cockpit
+        - tests_controles
+
+  mythique:
+    code: MY
+    emoji: "🔮"
+    command: "/proc mythique"
+    finalite: "Procédure décisionnelle avancée avec cockpit KPI"
+    couverture: 31
+    briques_supplementaires: 9
+    sections:
+      required:
+        - flash_card
+        - craie_localisation
+        - mermaid_logigramme
+        - raci_complet_6plus
+        - etapes_detaillees
+        - risques_analyse
+        - documents_support
+        - documents_enregistrement
+        - quality_gate_checklist
+        - cycle_vie_verrouille
+        - scorecard_complet
+        - modularite_tableau
+        - points_vigilance
+        - indicateurs_performance
+        - kpi_cockpit
+        - analyse_tendances
+        - predictive_alerts
+        - visualization_avancee
+        - audit_trail
+        - visualisation_risques
+      optional:
+        - linked_views
+
+  akuma:
+    code: AK
+    emoji: "👹"
+    command: "/proc akuma"
+    finalite: "Auto-évolution contrôlée avec garde-fous"
+    couverture: "diagnostic/simulation"
+    sections:
+      required:
+        - diagnostic_ia
+        - indicateurs_dynamiques
+        - boucle_retour_auto
+        - garde_fous_securite
+        - simulation_evolution
+        - risques_analyse
+        - visualisation_risques
+      optional:
+        - auto_deploiement
+        - linked_views
+
+# ─── Définition des sections ─────────────────────────────────────────────────
+sections:
+  flash_card:
+    label: "Flash Card — Résumé exécutif"
+    location: "§0"
+    description: "3 callouts : résumé 30s, points vigilance, note d'évolution"
+
+  craie_localisation:
+    label: "Localisation CRAIE"
+    location: "§0"
+    description: "Position dans le processus métier (callout + code CRAIE)"
+
+  acteurs_cles:
+    label: "Acteurs clés"
+    location: "§5"
+    description: "Liste des rôles sans tableau RACI complet"
+
+  etapes_simplifiees:
+    label: "Étapes simplifiées"
+    location: "§6"
+    description: "Synoptique express + étapes sans séquenceDiagram"
+
+  mermaid_logigramme:
+    label: "Logigramme Mermaid"
+    location: "§6.4"
+    description: "Flowchart décisionnel"
+
+  raci:
+    label: "Matrice RACI simple"
+    location: "§5.1"
+    description: "Tableau RACI 4 colonnes"
+
+  raci_complet:
+    label: "Matrice RACI complète"
+    location: "§5.1"
+    description: "RACI avec tous les acteurs + détails §5.2"
+
+  raci_complet_6plus:
+    label: "Matrice RACI 6+ acteurs"
+    location: "§5.1"
+    description: "RACI avec heatmap associée (4+ acteurs)"
+
+  etapes_detaillees:
+    label: "Étapes détaillées"
+    location: "§6"
+    description: "sequenceDiagram + tableau séquentiel + logigramme"
+
+  risques_analyse:
+    label: "§9 — RISQUES & CONTRÔLES (unifié)"
+    location: "§9"
+    description: >
+      Section unique regroupant l'ensemble des sous-composants risques :
+      9.1 Cartographie P×I (8 risques) · 9.2 Scoring RB→RN→RC ·
+      9.3 Score PMRI crédité · 9.4 Matrice P×I (QuadrantChart) ·
+      9.5 Contrôle ↔ Risque ↔ Règle · 9.6 Mapping CRAIE ·
+      9.7 Visualisation (Bow-tie M1 + Radar M3)
+
+  visualisation_risques:
+    label: "Visualisation avancée des risques"
+    location: "§9.7"
+    description: "Bow-tie (M1) + Radar criticité RB/RN/RC (M3) — extrait de §23"
+
+  documents_support:
+    label: "Documents support"
+    location: "§10"
+    description: "Documents sources (DS) + documents exploitation (DE)"
+
+  documents_enregistrement:
+    label: "Documents d'enregistrement"
+    location: "§10.2"
+    description: "Traces documentées générées par la procédure"
+
+  quality_gate_checklist:
+    label: "Quality Gate Checklist"
+    location: "§22.1"
+    description: "Porte qualité G1-G21"
+
+  cycle_vie:
+    label: "Cycle de vie"
+    location: "§22"
+    description: "Gestion des versions + révisions"
+
+  cycle_vie_verrouille:
+    label: "Cycle de vie verrouillé"
+    location: "§22"
+    description: "Versionnage + anti-obsolescence VERSION-CHECK"
+
+  scorecard:
+    label: "Scorecard"
+    location: "§SCORECARD"
+    description: "Évaluation qualitative synthétique"
+
+  scorecard_complet:
+    label: "Scorecard complet"
+    location: "§SCORECARD"
+    description: "Scorecard + matrice d'exécution opérationnelle"
+
+  modularite_tableau:
+    label: "Modularité tableau"
+    location: "§6, §9, §11"
+    description: "Tous les tableaux sont en formats modulaires (toggles)"
+
+  points_vigilance:
+    label: "Points de vigilance"
+    location: "§Flash Card"
+    description: "Callout ⚠️ dans l'en-tête + section dédiée"
+
+  indicateurs_performance:
+    label: "Indicateurs de performance"
+    location: "§16"
+    description: "KPIs + boucle PDCA"
+
+  kpi_cockpit:
+    label: "Cockpit KPI"
+    location: "§16.1, §23.8"
+    description: "Tableau de bord + M8 Cockpit KPI"
+
+  tableau_bord:
+    label: "Tableau de bord"
+    location: "§16.1"
+    description: "Indicateurs simplifiés"
+
+  analyse_tendances:
+    label: "Analyse des tendances"
+    location: "§16.2"
+    description: "Analyse historique et projections"
+
+  predictive_alerts:
+    label: "Alertes prédictives"
+    location: "§16"
+    description: "Seuils et alertes automatiques"
+
+  visualization_avancee:
+    label: "Visualisation avancée (M1→M9)"
+    location: "§23"
+    description: "9 briques d'intelligence décisionnelle"
+
+  audit_trail:
+    label: "Audit trail"
+    location: "§14"
+    description: "Points de contrôle et traçabilité complète"
+
+  tests_controles:
+    label: "Tests et contrôles"
+    location: "§14"
+    description: "Procédures de test associées"
+
+  # ─── Akuma uniquement ───────
+  diagnostic_ia:
+    label: "Diagnostic IA"
+    location: "§AKUMA.A"
+    description: "Analyse auto-état des lieux"
+
+  indicateurs_dynamiques:
+    label: "Indicateurs dynamiques"
+    location: "§AKUMA.B"
+    description: "Métriques temps réel"
+
+  boucle_retour_auto:
+    label: "Boucle de retour auto"
+    location: "§AKUMA.C"
+    description: "Boucle d'amélioration continue"
+
+  garde_fous_securite:
+    label: "Garde-fous sécurité"
+    location: "§AKUMA.D"
+    description: "Limites et alertes de sécurité"
+
+  simulation_evolution:
+    label: "Simulation d'évolution"
+    location: "§AKUMA.E"
+    description: "Simulation de scénarios d'amélioration"
+
+  auto_deploiement:
+    label: "Auto-déploiement"
+    location: "§AKUMA.F"
+    description: "Déploiement autonome contrôlé"
+
+  linked_views:
+    label: "Vues liées (relations BDD)"
+    location: "Propriétés page"
+    description: >
+      Relations Notion injectées dans la page :
+      risques_relations (SBRX), mesures_pmri (PMRI),
+      document_ged (GED), faq_relations (FAQ),
+      snapshots (Snapshots)
+
+# ─── Mapping des relations pour SYNC_NOTION ──────────────────────────────────
+linked_views:
+  risques_relations:
+    label: "Risques liés"
+    source: "SBRX"
+    type: "relation"
+    contract_field: "risques_lies"
+    description: "Risques spécifiques SBRX liés à cette procédure"
+
+  mesures_pmri:
+    label: "Mesures PMRI"
+    source: "PMRI"
+    type: "relation"
+    contract_field: "mesures_pmri"
+    description: "Mesures de mitigation PMRI"
+
+  document_ged:
+    label: "Document GED"
+    source: "GED"
+    type: "relation"
+    contract_field: "documents_ged"
+    description: "Documents associés dans la GED"
+
+  faq_relations:
+    label: "FAQ liée"
+    source: "FAQ"
+    type: "relation"
+    contract_field: "faq_liee"
+    description: "FAQ associées à la procédure"
+
+  snapshots:
+    label: "Snapshots procédures"
+    source: "Snapshots"
+    type: "relation"
+    contract_field: "snapshots"
+    description: "Instantanés de versions"

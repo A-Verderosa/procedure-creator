@@ -1,0 +1,114 @@
+{
+  "procedure": {
+    "procedure_id": "M1-P3-02",
+    "titre": "Procédure d'instruction des demandes ponctuelles",
+    "direction": "Évaluateur Public",
+    "version": "1.0",
+    "statut": "À faire",
+    "objet": "Définir les modalités d'instruction des demandes ponctuelles adressées à l'Évaluateur Public, de la réception à la notification de la décision, dans le respect des délais réglementaires et des principes de contradictoire et de transparence.",
+    "champ_application": "La présente procédure s'applique à l'ensemble des demandes ponctuelles traitées par l'Évaluateur Public, quel que soit le canal de réception (courrier, email, formulaire web, guichet), à l'exclusion des demandes récurrentes ou programmées relevant d'une procédure dédiée. Elle concerne les agents instructeurs, les responsables de pôle et la direction.",
+    "definitions": [
+      "**Demande ponctuelle** : sollicitation unique et non récurrente adressée par un usager ou un tiers à l'Évaluateur Public.",
+      "**Instruction** : phase d'analyse et de vérification des éléments constitutifs d'une demande.",
+      "**Contradictoire** : principe visant à permettre au demandeur de présenter ses observations avant toute décision défavorable.",
+      "**Notification** : transmission officielle de la décision au demandeur."
+    ],
+    "acteurs": [
+      "**Agent instructeur** : réceptionne, instruit et suit la demande dans le SI.",
+           "**Responsable de pôle** : supervise l'instruction, valide les projets de décision.",
+      "**Direction** : prend la décision finale sur les cas sensibles (litiges, recours).",
+      "**Service juridique** : apporte son concours pour les questions de droit complexes.",
+      "**Usager** : dépose la demande et est informé de la suite donnée."
+    ],
+    "regles": [
+      "Délai maximum d'instruction : 2 mois à compter de la réception (prorogeable 1 mois avec information du demandeur).",
+      "Toute demande incomplète : accusé de réception + demande de pièces complémentaires sous 15 jours.",
+      "Absence de réponse dans les délais : décision implicite (acceptation ou rejet selon le type de demande).",
+      "Les échanges contradictoires sont tracés dans le dossier numérique.",
+      "Le demandeur peut consulter son dossier à tout moment sur demande écrite.",
+      "Les décisions individuelles sont notifiées par lettre recommandée avec AR ou LRAR."
+    ],
+    "consignes": [
+      "🔒 **Sécurité des données** : les informations personnelles des demandeurs sont traitées conformément au RGPD (durée de conservation : 5 ans après clôture).",
+      "🔒 **Traçabilité** : chaque action (accusé, instruction, décision) est horodatée dans le SI.",
+      "🔒 **Confidentialité** : les dossiers en cours d'instruction ne sont accessibles qu'aux agents habilités.",
+      "⚠️ **Délais** : le non-respect des délais expose l'Évaluateur Public à une injonction du tribunal administratif."
+    ],
+    "documents_reference": [
+      "- Code des relations entre le public et l'administration (CRPA)",
+      "- Loi n° 2000-321 du 12 avril 2000 relative aux droits des citoyens",
+      "- Référentiel général d'accessibilité pour les administrations (RGAA)",
+      "- Guide de la demande ponctuelle (version 2.1)",
+      "- Instruction DGAFP du 15 mars 2023 relative aux délais d'instruction",
+      "- Charte des usagers de l'Évaluateur Public",
+      "- Délibération CNIL n° 2023-045 (traitement des données personnelles)"
+    ],
+    "documents_supports": [
+      "- Modèle d'accusé de réception",
+      "- Modèle de décision (favorable)",
+      "- Modèle de décision (défavorable)",
+      "- Grille d'instruction des demandes",
+      "- Formulaire de demande de pièces complémentaires"
+    ],
+    "periodicite_revue": "Semestrielle",
+    "craie_context": "Une demande ponctuelle arrive (courrier/email/guichet) → L'agent instructeur réceptionne et enregistre dans le SI → Accusé de réception sous 15 jours → Instruction : vérification des pièces, contradictoire si nécessaire → Projet de décision → Validation par le responsable de pôle → Décision finale signée par la direction → Notification au demandeur (LRAR) → Clôture et archivage.",
+    "phases": [
+      {
+        "numero": 1,
+        "titre": "Réception et enregistrement",
+        "delai": "1 jour",
+        "actions": "Réceptionner la demande, vérifier le canal de réception, attribuer un numéro de dossier, enregistrer dans le SI, accuser réception sous 15 j.",
+        "vigilance": "Délai d'accusé de réception à ne pas dépasser.",
+        "acteurs": "Agent instructeur",
+        "documents": "Modèle d'accusé de réception"
+      },
+      {
+        "numero": 2,
+        "titre": "Instruction contradictoire",
+        "delai": "45 jours",
+        "actions": "Analyser la recevabilité, demander pièces complémentaires si nécessaire, mener le contradictoire, préparer projet de décision.",
+        "vigilance": "Respect du contradictoire : informer le demandeur de tout élément défavorable.",
+        "acteurs": "Agent instructeur, Responsable de pôle",
+        "documents": "Grille d'instruction"
+      },
+      {
+        "numero": 3,
+        "titre": "Validation et décision",
+        "delai": "15 jours",
+        "actions": "Transmettre le projet au responsable de pôle pour validation, soumettre à la direction pour signature, formaliser la décision définitive.",
+        "vigilance": "Décision conforme au projet validé, signature électronique requise.",
+        "acteurs": "Responsable de pôle, Direction",
+        "documents": "Modèle de décision"
+      },
+      {
+        "numero": 4,
+        "titre": "Notification et clôture",
+        "delai": "10 jours",
+        "actions": "Notifier la décision au demandeur (LRAR), mettre à jour le SI, archiver le dossier, envoyer copie aux parties prenantes.",
+        "vigilance": "Preuve de notification conservée dans le dossier.",
+        "acteurs": "Agent instructeur",
+        "documents": "Accusé de réception LRAR"
+      }
+    ],
+    "risks_detail": [
+      {"code": "R1", "titre": "Non-respect des délais d'instruction", "impact": 3, "probabilite": 3},
+      {"code": "R2", "titre": "Dossier incomplet non détecté", "impact": 2, "probabilite": 2},
+      {"code": "R3", "titre": "Défaut de contradictoire", "impact": 2, "probabilite": 3},
+      {"code": "R4", "titre": "Erreur de notification", "impact": 4, "probabilite": 1}
+    ],
+    "pmri_mesures": [
+      {"risque": "R1", "mesure": "Tableau de bord des délais avec alertes automatiques J-30 / J-15 / J-7", "nature": "Veille active"},
+      {"risque": "R1", "mesure": "Revue hebdomadaire des dossiers en cours par le responsable de pôle", "nature": "Préventive"},
+      {"risque": "R2", "mesure": "Checklist de complétude obligatoire avant instruction", "nature": "Préventive"},
+      {"risque": "R2", "mesure": "Vérification aléatoire des dossiers par le responsable de pôle (10% échantillon)", "nature": "Détection"},
+      {"risque": "R3", "mesure": "Template de courrier contradictoire pré-rempli et validé juridiquement", "nature": "Traitement"},
+      {"risque": "R4", "mesure": "Double vérification des coordonnées du demandeur avant envoi LRAR", "nature": "Préventive"}
+    ],
+    "faq": [
+      {"question": "Quel est le délai maximum d'instruction d'une demande ponctuelle ?", "reponse": "Le délai maximum est de 2 mois à compter de la réception de la demande complète, prorogeable d'1 mois avec information préalable du demandeur."},
+      {"question": "Que faire si la demande est incomplète ?", "reponse": "Accuser réception de la demande et adresser un courrier listant les pièces manquantes au demandeur dans un délai de 15 jours. Le délai d'instruction est suspendu jusqu'à réception des pièces."},
+      {"question": "Comment notifier une décision défavorable ?", "reponse": "La décision défavorable doit être notifiée par LRAR, précédée d'une phase contradictoire d'au moins 15 jours, et mentionner les voies et délais de recours."},
+      {"question": "Que se passe-t-il en cas d'absence de réponse dans le délai ?", "reponse": "Conformément au CRPA, le silence de l'administration vaut décision implicite : acceptation pour les demandes de droit commun, rejet pour les demandes relevant d'une décision implicite de rejet."}
+    ]
+  }
+}

@@ -1,0 +1,194 @@
+{
+  "batch": [
+    {
+      "score": 56.4,
+      "max": 39,
+      "score_raw": 22,
+      "max_raw": 39,
+      "passes": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G6"
+      ],
+      "fails": [
+        "G21",
+        "G5",
+        "G7",
+        "G7B"
+      ],
+      "warnings": [],
+      "details": [
+        {
+          "id": "G1",
+          "name": "Titre et référence",
+          "niveau_min": "bronze",
+          "weight": 3,
+          "passed": true,
+          "criteria": [
+            "La procédure a un titre explicite (Nom + Réf.)",
+            "La référence suit le format PRH-xxx"
+          ],
+          "result": "PASS"
+        },
+        {
+          "id": "G2",
+          "name": "FLASH CARD",
+          "niveau_min": "bronze",
+          "weight": 5,
+          "passed": true,
+          "criteria": [
+            "Résumé exécutif 30 secondes présent",
+            "Contient : objet, acteurs clés, délais pivots, risques majeurs",
+            "Indicateur cible ou score visible"
+          ],
+          "result": "PASS"
+        },
+        {
+          "id": "G21",
+          "name": "QG Global",
+          "niveau_min": "bronze",
+          "weight": 5,
+          "passed": false,
+          "criteria": [
+            "Score QG ≥ 80% pour Or, ≥ 85% pour Platine, ≥ 90% pour Ultra",
+            "Aucun QG critique (poids ≥ 4) en échec"
+          ],
+          "result": "FAIL"
+        },
+        {
+          "id": "G3",
+          "name": "Localisation CRAIE",
+          "niveau_min": "bronze",
+          "weight": 4,
+          "passed": true,
+          "criteria": [
+            "Localisation explicite (Mission › Processus › Service)",
+            "Filière RH mentionnée"
+          ],
+          "result": "PASS"
+        },
+        {
+          "id": "G4",
+          "name": "Logigramme Mermaid",
+          "niveau_min": "argent",
+          "weight": 5,
+          "passed": true,
+          "criteria": [
+            "Diagramme flowchart LR ou TD présent",
+            "Amont → Procédure → Aval représenté",
+            "Au moins 3 nœuds"
+          ],
+          "result": "PASS"
+        },
+        {
+          "id": "G5",
+          "name": "RACI complet",
+          "niveau_min": "argent",
+          "weight": 4,
+          "passed": false,
+          "criteria": [
+            "Au moins 4 acteurs identifiés",
+            "Au moins 3 phases couvertes",
+            "R/A/C/I explicités"
+          ],
+          "result": "FAIL"
+        },
+        {
+          "id": "G6",
+          "name": "Sections étapes détaillées",
+          "niveau_min": "argent",
+          "weight": 5,
+          "passed": true,
+          "criteria": [
+            "Chaque étape décrit : action, acteur, délai, livrable",
+            "Ordre chronologique clair"
+          ],
+          "result": "PASS"
+        },
+        {
+          "id": "G7",
+          "name": "Risques identifiés",
+          "niveau_min": "argent",
+          "weight": 5,
+          "passed": false,
+          "criteria": [
+            "Au moins 3 risques documentés",
+            "Chaque risque a : code, description, impact, probabilité"
+          ],
+          "result": "FAIL"
+        },
+        {
+          "id": "G7B",
+          "name": "Documents support",
+          "niveau_min": "argent",
+          "weight": 3,
+          "passed": false,
+          "criteria": [
+            "Documents de référence listés",
+            "Documents d'enregistrement listés"
+          ],
+          "result": "FAIL"
+        }
+      ],
+      "niveau": "argent",
+      "seuils": {
+        "applicable": {
+          "min_total": 55,
+          "min_required": 14
+        },
+        "all": {
+          "bronze": {
+            "min_total": 40,
+            "min_required": 10
+          },
+          "argent": {
+            "min_total": 55,
+            "min_required": 14
+          },
+          "or": {
+            "min_total": 70,
+            "min_required": 17
+          },
+          "platine": {
+            "min_score": 80,
+            "min_required": 23
+          },
+          "ultra": {
+            "min_score": 85,
+            "min_required": 31
+          },
+          "mythique": {
+            "min_score": 90,
+            "min_required": 40
+          }
+        }
+      },
+      "niveaux_sections": {
+        "status": "ok",
+        "niveau": "argent",
+        "couverture": 14,
+        "finalite": "Procédure interne complète et exploitable",
+        "required_sections": [
+          "flash_card",
+          "craie_localisation",
+          "mermaid_logigramme",
+          "raci",
+          "etapes_detaillees",
+          "risques_identifies"
+        ],
+        "optional_sections": [
+          "documents_support"
+        ],
+        "total_sections": 7
+      },
+      "file": "test_procedure.md"
+    }
+  ],
+  "summary": {
+    "total": 1,
+    "passed": 1,
+    "failed": 0
+  }
+}

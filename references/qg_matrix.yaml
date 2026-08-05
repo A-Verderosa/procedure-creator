@@ -1,0 +1,215 @@
+# Quality Gates G1-G21 — Matrice de validation des procédures
+# Chaque QG a un niveau minimum requis, un poids, et des critères de passage
+
+gates:
+  # ─── G1-G7B : Structurels ───
+  G1:
+    name: "Titre et référence"
+    niveau_min: bronze
+    weight: 3
+    criteria:
+      - "La procédure a un titre explicite (Nom + Réf.)"
+      - "La référence suit le format PRH-xxx"
+    check: "string_present"
+
+  G2:
+    name: "FLASH CARD"
+    niveau_min: bronze
+    weight: 5
+    criteria:
+      - "Résumé exécutif 30 secondes présent"
+      - "Contient : objet, acteurs clés, délais pivots, risques majeurs"
+      - "Indicateur cible ou score visible"
+    check: "callout_present"
+
+  G3:
+    name: "Localisation CRAIE"
+    niveau_min: bronze
+    weight: 4
+    criteria:
+      - "Localisation explicite (Mission › Processus › Service)"
+      - "Filière RH mentionnée"
+    check: "pattern_match"
+
+  G4:
+    name: "Logigramme Mermaid"
+    niveau_min: argent
+    weight: 5
+    criteria:
+      - "Diagramme flowchart LR ou TD présent"
+      - "Amont → Procédure → Aval représenté"
+      - "Au moins 3 nœuds"
+    check: "mermaid_present"
+
+  G5:
+    name: "RACI complet"
+    niveau_min: argent
+    weight: 4
+    criteria:
+      - "Au moins 4 acteurs identifiés"
+      - "Au moins 3 phases couvertes"
+      - "R/A/C/I explicités"
+    check: "raci_complete"
+
+  G6:
+    name: "Sections étapes détaillées"
+    niveau_min: argent
+    weight: 5
+    criteria:
+      - "Chaque étape décrit : action, acteur, délai, livrable"
+      - "Ordre chronologique clair"
+    check: "sections_detailed"
+
+  G7:
+    name: "Risques identifiés"
+    niveau_min: argent
+    weight: 5
+    criteria:
+      - "Au moins 3 risques documentés"
+      - "Chaque risque a : code, description, impact, probabilité"
+    check: "risks_present"
+
+  G7B:
+    name: "Documents support"
+    niveau_min: argent
+    weight: 3
+    criteria:
+      - "Documents de référence listés"
+      - "Documents d'enregistrement listés"
+    check: "documents_present"
+
+  # ─── G8-G11 : Package / Modularité ───
+  G8:
+    name: "Synthèse de modularité"
+    niveau_min: platine
+    weight: 3
+    criteria:
+      - "Tableau de synthèse des niveaux présent"
+      - "Niveaux Bronze à cible couverts"
+    check: "table_present"
+
+  G9:
+    name: "Tableau comparatif"
+    niveau_min: platine
+    weight: 3
+    criteria:
+      - "Critères principaux comme titres de ligne"
+      - "Au moins 3 critères comparés"
+    check: "table_comparative"
+
+  G10:
+    name: "Couverture cumulative"
+    niveau_min: platine
+    weight: 2
+    criteria:
+      - "Sections obligatoires du niveau toutes présentes"
+      - "Checklist de niveau validée"
+    check: "coverage_check"
+
+  G11:
+    name: "Scorecard de niveau"
+    niveau_min: platine
+    weight: 4
+    criteria:
+      - "Score total calculé"
+      - "Trophée attribué"
+      - "Sous-critères scorés individuellement"
+    check: "scorecard_present"
+
+  # ─── G12-G21 : Core Close ───
+  G12:
+    name: "Définition réutilisable des niveaux"
+    niveau_min: ultra
+    weight: 3
+    criteria:
+      - "Définition de chaque niveau présent dans la procédure"
+      - "Format standardisé"
+    check: "definitions_present"
+
+  G13:
+    name: "Tableau critères/sous-critères"
+    niveau_min: ultra
+    weight: 3
+    criteria:
+      - "Critères avec sous-critères explicites"
+      - "Pondération visible"
+    check: "criteria_table"
+
+  G14:
+    name: "Dernière revue renseignée"
+    niveau_min: platine
+    weight: 2
+    criteria:
+      - "Date de dernière revue remplie"
+      - "Reviseur identifié"
+    check: "date_present"
+
+  G15:
+    name: "Périodicité définie"
+    niveau_min: platine
+    weight: 2
+    criteria:
+      - "Périodicité de revue explicite (annuelle/semestrielle…)"
+    check: "periodicite_present"
+
+  G16:
+    name: "Prochaine revue cohérente"
+    niveau_min: platine
+    weight: 2
+    criteria:
+      - "Prochaine revue calculée correctement"
+      - "Prochaine revue prévue > date de création"
+    check: "next_review_valid"
+
+  G17:
+    name: "FAQ liée"
+    niveau_min: mythique
+    weight: 3
+    criteria:
+      - "Au moins 5 FAQ pour Mythique"
+      - "FAQ couvre les cas d'erreur courants"
+    check: "faq_present"
+
+  G18:
+    name: "Statut révision calculé"
+    niveau_min: ultra
+    weight: 2
+    criteria:
+      - "Statut calculé automatiquement (À jour / À réviser / Périmée)"
+    check: "statut_revision"
+
+  G19:
+    name: "Non-régression vérifiée"
+    niveau_min: ultra
+    weight: 4
+    criteria:
+      - "Aucune section supprimée depuis la version précédente"
+      - "Aucun risque retiré sans justification"
+    check: "no_regression"
+
+  G20:
+    name: "Version historique tracée"
+    niveau_min: ultra
+    weight: 2
+    criteria:
+      - "Historique des versions disponible"
+      - "Au moins la version précédente documentée"
+    check: "version_history"
+
+  G21:
+    name: "QG Global"
+    niveau_min: bronze
+    weight: 5
+    criteria:
+      - "Score QG ≥ 80% pour Or, ≥ 85% pour Platine, ≥ 90% pour Ultra"
+      - "Aucun QG critique (poids ≥ 4) en échec"
+    check: "global_score"
+
+# Seuils de passage
+seuils:
+  bronze:  { min_total: 40, min_required: 10 }
+  argent:  { min_total: 55, min_required: 14 }
+  or:      { min_total: 70, min_required: 17 }
+  platine: { min_score: 80, min_required: 23 }
+  ultra:   { min_score: 85, min_required: 31 }
+  mythique: { min_score: 90, min_required: 40 }

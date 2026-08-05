@@ -1,0 +1,138 @@
+# BDD Canoniques — Notion Data Sources & Databases
+# IDs vérifiés via API Notion le 2026-08-01
+# database_id = ID natif Notion pour PATCH/POST pages
+# data_source_id = ID wrapper pour query/filtres/rollups
+
+bdd_canoniques:
+  
+  procedures:
+    name: "BDD - 1 PROCÉDURES RH"
+    type: data_source
+    database_id: "7155819e-29d8-4ba6-be2e-4aaa6b6fee38"
+    data_source_id: "b6c395ef-19fc-42d4-95ef-2ca586872139"
+    description: "Base principale des procédures RH. 71 propriétés."
+    properties_count: 71
+    proprietes_cles:
+      title: "Titre"
+      unique_id: "Procedure_ID"
+      statut: "Statut"
+      validation: "Validation"
+      priorite: "Priorité"
+      pilote: "Pilote procédure"
+      progression: "Progression"
+      direction: "Direction"
+      service: "Service"
+      pole: "Pole"
+      ultra: "ULTRA"
+      verifiee: "Vérifiée"
+
+  risques_sbrx:
+    name: "SBRX — Risques et Opportunités"
+    type: data_source
+    description: "Base des risques — liée aux procédures via propriété Risques Spécifiques SBRX"
+    propriete_relation: "Risques Spécifiques SBRX"
+
+  ged:
+    name: "GED — Gestion Électronique de Documents"
+    type: data_source
+    description: "Documents support et d'enregistrement des procédures"
+    propriete_relation: "Documents liés"
+
+  annuaire:
+    name: "BDD - 7 Annuaire Procedure (BDD - 1 PROCÉDURES RH)"
+    type: data_source
+    description: "Responsables, gestionnaires, valideurs"
+    propriete_relation: "Lié à BDD - 7 Annuaire Procedure (BDD - 1 PROCÉDURES RH)"
+
+  organigramme:
+    name: "DOX BDD - ORGANIGRAMME GLOBAL"
+    type: data_source
+    description: "Directions, services, pôles de rattachement"
+    propriete_relation: "Organigramme Structure"
+
+  glossaire:
+    name: "DOX BDD - GLOSSAIRE MAIN"
+    type: data_source
+    description: "Définitions normalisées des termes RH"
+    propriete_relation: "Glossaire RH"
+
+  actions:
+    name: "Suivi des Actions"
+    type: data_source
+    description: "Actions correctives issues des revues de procédure"
+    propriete_relation: "Actions liées"
+
+  mppc:
+    name: "MPPC — Mesures de Protection et Prévention"
+    type: data_source
+    description: "Mesures de mitigation liées aux risques SBRX"
+    propriete_relation: "MPPC (mesures)"
+
+  exigences_gc:
+    name: "📏 BDD — Exigences (G/C)"
+    type: data_source
+    description: "Exigences générales et communes applicables"
+    propriete_relation: "Exigences (G/C)"
+
+  agents_ia:
+    name: "DOX BDD - REGISTRE DES AGENTS IA"
+    type: data_source
+    description: "Agents IA déployés (Akuma, PROC, etc.)"
+
+  notations_ultra:
+    name: "Notations ULTRA"
+    type: data_source
+    description: "Notations qualité des procédures ULTRA"
+    propriete_relation: "Notations ULTRA"
+
+  workflows_derives:
+    name: "Workflows dérivés"
+    type: data_source
+    description: "Workflows générés à partir des procédures"
+    propriete_relation: "Workflows dérivés"
+
+
+# Relations bidirectionnelles — nom canonique → propriété relation Notion
+relations:
+  organigramme_procedure:
+    source_bdd: organigramme
+    target_bdd: procedures
+    type: "Organigramme Structure → procédure"
+    cardinality: "N:1"
+    propriete_notion: "Organigramme Structure"
+  annuaire_procedure:
+    source_bdd: annuaire
+    target_bdd: procedures
+    type: "Annuaire → procédure"
+    cardinality: "N:1"
+    propriete_notion: "Lié à BDD - 7 Annuaire Procedure (BDD - 1 PROCÉDURES RH)"
+  procedure_risques:
+    source_bdd: procedures
+    target_bdd: risques_sbrx
+    type: "procédure → risques SBRX"
+    cardinality: "1:N"
+    propriete_notion: "Risques Spécifiques SBRX"
+  procedure_ged:
+    source_bdd: procedures
+    target_bdd: ged
+    type: "procédure → documents"
+    cardinality: "1:N"
+    propriete_notion: "Documents liés"
+  procedure_mppc:
+    source_bdd: procedures
+    target_bdd: mppc
+    type: "procédure → mesures MPPC"
+    cardinality: "1:N"
+    propriete_notion: "MPPC (mesures)"
+  procedure_exigences:
+    source_bdd: procedures
+    target_bdd: exigences_gc
+    type: "procédure → exigences G/C"
+    cardinality: "1:N"
+    propriete_notion: "Exigences (G/C)"
+  procedure_glossaire:
+    source_bdd: procedures
+    target_bdd: glossaire
+    type: "procédure → glossaire"
+    cardinality: "1:N"
+    propriete_notion: "Glossaire RH"
